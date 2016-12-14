@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular应用案例</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/base.css" />
+  </head>
+  <body ng-app="myApp">
+    <div id="content">
+      <div data-reactroot="" class="commentBox">
+        <h1>用户评论</h1>
+        <div class="commentList" ng-controller='commentListCtrl'>
+          <div class="comment" ng-repeat="comment in comments">
+            <h2 class="commentAuthor">{{comment.author}}</h2>
+            <p>{{comment.text}}</p>
+          </div>
+        </div>
+        <form class="commentForm" ng-controller="validateCtrl" novalidate name="myForm">
+          <input type="text" placeholder="你的姓名" value="" name="author" ng-model="comment.author" required/>
+          <input type="text" placeholder="你要说的话" value="" name="text" ng-model="comment.text" required/>
+          <input type="submit" value="提交" ng-click="submitForm()" ng-disabled="myForm.$invalid"/>
+        </form>
+      </div>
+    </div>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/comment.js"></script>
+    <script src="scripts/canvas.js"></script>
+  </body>
+</html>
